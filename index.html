@@ -1,0 +1,153 @@
+// File: index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Voice Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo-placeholder.svg" alt="Logo">
+                <h1>VoiceAssist</h1>
+            </div>
+            <div class="business-info" id="business-info">
+                <div class="business-avatar">
+                    <img src="business-placeholder.svg" alt="Business" id="business-avatar">
+                </div>
+                <h2 id="business-name">Loading...</h2>
+                <p id="business-category">Please scan a QR code</p>
+            </div>
+            <div class="sidebar-nav">
+                <a href="#" class="active"><i class="fas fa-comment-dots"></i> Chat</a>
+                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+                <a href="#"><i class="fas fa-calendar-alt"></i> Book</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact</a>
+            </div>
+            <div class="qr-info">
+                <p><i class="fas fa-qrcode"></i> QR Code: <span id="qr-code-id">Not scanned</span></p>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Voice Assistant</h2>
+                    <div class="chat-actions">
+                        <button id="new-chat-btn"><i class="fas fa-plus"></i> New Chat</button>
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun"></i>
+                            <label class="switch">
+                                <input type="checkbox" id="theme-switch">
+                                <span class="slider round"></span>
+                            </label>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message assistant">
+                        <div class="message-avatar">
+                            <img src="assistant-avatar.svg" alt="Assistant">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                <p>Hello! I'm your AI voice assistant. Scan a QR code to get started, or type a message below.</p>
+                            </div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Type your message...">
+                        <div class="input-buttons">
+                            <button id="voice-btn" class="voice-btn">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button id="send-btn" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-feedback">
+                        <div id="voice-feedback" class="voice-feedback hidden">
+                            <div class="voice-waves">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <p>Listening...</p>
+                            <button id="stop-voice-btn"><i class="fas fa-stop"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-panel">
+                <div class="panel-section hours-section">
+                    <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                    <ul id="business-hours">
+                        <li>Loading hours...</li>
+                    </ul>
+                </div>
+                
+                <div class="panel-section services-section">
+                    <h3><i class="fas fa-concierge-bell"></i> Services</h3>
+                    <ul id="business-services">
+                        <li>Loading services...</li>
+                    </ul>
+                </div>
+                
+                <div class="panel-section suggestions-section">
+                    <h3><i class="fas fa-lightbulb"></i> Try asking about</h3>
+                    <div class="suggestion-chips">
+                        <span class="suggestion-chip" data-query="What services do you offer?">Services</span>
+                        <span class="suggestion-chip" data-query="What are your business hours?">Hours</span>
+                        <span class="suggestion-chip" data-query="How can I book an appointment?">Booking</span>
+                        <span class="suggestion-chip" data-query="Do you have any promotions?">Promotions</span>
+                        <span class="suggestion-chip" data-query="How can I contact you?">Contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="qr-scanner-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Scan QR Code</h2>
+            <div id="qr-scanner"></div>
+            <p>Position the QR code within the scanner area.</p>
+            <button id="manual-entry-btn">Enter Business ID Manually</button>
+        </div>
+    </div>
+    
+    <div id="manual-entry-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Enter Business Details</h2>
+            <div class="form-group">
+                <label for="manual-business-id">Business ID</label>
+                <input type="text" id="manual-business-id" placeholder="Enter business ID">
+            </div>
+            <div class="form-group">
+                <label for="manual-qr-code">QR Code ID (optional)</label>
+                <input type="text" id="manual-qr-code" placeholder="Enter QR code ID">
+            </div>
+            <button id="submit-manual-entry">Connect</button>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="app.js"></script>
+</body>
+</html>

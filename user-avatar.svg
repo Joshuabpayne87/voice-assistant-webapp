@@ -1,0 +1,24 @@
+/* assistant-avatar.svg */
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="36" height="36" rx="18" fill="#4F46E5"/>
+  <path d="M18 10.5C16.4087 10.5 14.8826 11.1321 13.7574 12.2574C12.6321 13.3826 12 14.9087 12 16.5C12 18.0913 12.6321 19.6174 13.7574 20.7426C14.8826 21.8679 16.4087 22.5 18 22.5C19.5913 22.5 21.1174 21.8679 22.2426 20.7426C23.3679 19.6174 24 18.0913 24 16.5C24 14.9087 23.3679 13.3826 22.2426 12.2574C21.1174 11.1321 19.5913 10.5 18 10.5Z" fill="white"/>
+  <path d="M18 24C14.22 24 9 25.89 9 29.5V31H27V29.5C27 25.89 21.78 24 18 24Z" fill="white"/>
+</svg>
+
+/* user-avatar.svg */
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="36" height="36" rx="18" fill="#F0F9FF"/>
+  <circle cx="18" cy="15" r="6" fill="#0EA5E9"/>
+  <path d="M30 36C30 29.3726 24.6274 24 18 24C11.3726 24 6 29.3726 6 36" fill="#0EA5E9"/>
+</svg>
+
+/* business-placeholder.svg */
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="40" fill="#E2E8F0"/>
+  <path d="M40 16L28 28V64H52V28L40 16Z" fill="#94A3B8"/>
+  <rect x="36" y="48" width="8" height="16" fill="#E2E8F0"/>
+  <rect x="32" y="32" width="6" height="6" fill="#E2E8F0"/>
+  <rect x="42" y="32" width="6" height="6" fill="#E2E8F0"/>
+  <rect x="32" y="42" width="6" height="6" fill="#E2E8F0"/>
+  <rect x="42" y="42" width="6" height="6" fill="#E2E8F0"/>
+</svg>
